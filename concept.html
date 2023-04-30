@@ -32,7 +32,10 @@
 			font-family: Lora, serif;
 			letter-spacing: .04em;
 		}
-
+		h5 {
+			font-family: Lora, serif;
+			
+		}
 		p {
 			font-size: 1em;
 			line-height: 1.5em;
@@ -94,7 +97,7 @@ tr:hover {background-color: #ebedc3;}
 
 			<h3>Concept</h3>
 	
-			This mapping project visualizes the six major iterations of Lexington’s Urban Service Area, which was established in 1958 as the first urban growth boundary in the United States. The Urban Service Area is a socially, politically, and economically contentious issue in Lexington as it determines which areas within Lexington/Fayette County are eligible to receive city services (sewage, trash collection, street lights, etc), and are able to be zoned for development. <br><br>
+			This mapping project visualizes the six major iterations of Lexington’s Urban Service Area, which was established in 1958 as the first urban growth boundary in the United States. The Urban Service Area is a socially, politically, and economically contentious issue in Lexington as it determines which areas within Lexington/Fayette County are eligible to receive city services (sewage, trash collection, street lights, etc.), and are able to be zoned for development. <br><br>
 			
 			My interest in making this map stems from my interest in the multiple discourses around the Urban Service Area boundary. Anecdotally, I know that many residents are unaware of the Urban Service Area and its importance to Lexington’s landscape(s), while other residents (and miscellaneous stakeholders) are deeply invested in how the boundary may or may not shift. Every five years, the city considers changing the boundary, and whether or not to expand it considerably dominates many of these conversations. However, while expanding the Urban Service Area is most common, there are instances of the boundary retracting, in some cases significantly. This came as a surprise to me when I started researching this topic, because narratives around urban growth boundaries in the United States usually center around expansion deliberation, typically in regard to the real estate market and environmental conservation. While these themes are relevant here, Lexington/Fayette County’s retracted Urban Service areas, particularly a sizable area northeast of the city center, bring forth questions around intent, benefit, and relationships, specific to Lexington/Fayette County’s political economy. In particular, the region’s thoroughbred horse industry seems to play a major role. <br><br> 
 			
@@ -150,29 +153,34 @@ tr:hover {background-color: #ebedc3;}
 			<h3>Process</h3>
 			
 			This map was created with <a href="https://www.qgis.org/en/site/">QGIS</a>, <a href="https://plugins.qgis.org/plugins/qgis2web/">qgis2web</a>, and HTML. The <a href="https://github.com/conleykinkead/lexington_urban-service-area">repository</a> is hosted on GitHub to provide public access. Data was collected from <a href="https://data.lexingtonky.gov/">Lexington's Data Hub</a>. <br><br>
+
+			To create this map, I imported the Urban Service Area layers and Lexington/Fayette County polygon layer into QGIS and ordered them with most recent boundary iteration on top. Underneath these layers three Esri basemaps are included to provide place names and aerial imagery or a simple grey vector tile layer per user choice. Urban Service Area layers were stylized to be semi-opaque and mapped to <a href="https://www.fabiocrameri.ch/colourmaps/">Fabio Crameri's davos sequential color scheme</a>.<br><br>
+
+			The web map skeleton was built using qgis2web before I edited the HTML manually to bring uniformity to layer pop-ups. <br><br>
+
 			
 			<h3>Findings</h3>
 			
-			<h4>Technical findings</h4>
+			<h5>Technical findings</h5>
 			
-			This project strengthened my web mapping skills in a variety of ways. First, this is my first successful use of the qgis2web plugin, which I have struggled with immensely (and consequentially) in the past. But, I was determined to use this plugin as it can build an interactive web map, which was crucial for this project. Until now, my elementary knowledge and experience with web mapping has only supported building zoomable XYZ tiles maps, which would be inappropriate for this project both visually and conceptually. Through much trial and error, I found that the qgis2web plugin works best with layers loaded into QGIS as .geojson files. When the same layers were downloaded from the source and imported as .geopackage files, the QGIS2web plugin did not write them, and I ended up with only my base maps rendered. <br><br>
+			This project strengthened my web mapping skills in a variety of ways. First, this is my first successful use of the qgis2web plugin, which I have struggled with immensely (and consequentially) in the past. But, I was determined to use this plugin as it can build an interactive web map, crucial for this project. Until now, my elementary knowledge and experience with web mapping has only supported building zoomable XYZ tiles maps, which would be inappropriate for this project both visually and conceptually. Through much trial and error, I found that the qgis2web plugin works best with layers loaded into QGIS as .geojson files. When the same layers were downloaded from the source and imported as .geopackage files, the QGIS2web plugin did not write them, and I ended up with only my base maps rendered. <br><br>
 			
-			Next, qgis2web offers three services for map creation: OpenLayers, Leaflet, and Mapbox GL JS. All seem to have their strengths and drawbacks. The Leaflet service <br><br>
-			
-			
-			
-			<h4>As compared to other work on the same topic</h4>
-			
-			This web map is part of a broader interest in researching Lexington’s Urban Service Area and was largely inspired by a <a href="narrative-map.html">narrative map</a> on the same topic I created earlier this year.<br><br>
+			qgis2web offers three services for map creation: OpenLayers, Leaflet, and Mapbox GL JS. All seem to have their strengths and drawbacks. I selected the Leaflet service because of its ability to embed an informational abstract to the map.<br><br>
 			
 			
-			<h4>User response</h4>
 			
-			As an interactive web map designed to be approachable and informative to Lexington folks with a spectrum of knowledge on the Urban Service Area topic, this map requires user response to ascertain its success and value. Unfortunately, assessing user response on any significant scale was outside of my abilities for this particular project, but I did share drafts of the web map with some friends for feedback and response. <br><br>
+			<h5>As compared to other work on the same topic</h5>
 			
-			call out images of certain areas
-			curiosity about folks on other side of the boundary
-			more info on pop-ups? 
+			This web map is part of a broader interest in researching Lexington’s Urban Service Area and was largely inspired by a <a href="narrative-map.html">narrative map</a> on the same topic I created earlier this year. While both maps were created to be informative visualizations of Lexington's Urban Service Area, they go about demonstrating the change in boundary iterations in different ways. The linked narrative map visualizes the shapes of Urban Service Area expansion and retraction on top of layered photographs of the bluegrass region's farmland, hinting more at the boundary's impacts on, or threats to, agricultural areas. The interactive web map takes a different approach by focusing on urban development, which I believe is especially highlighted by built environment aerial imagery underneath the translucent Urban Service Area layers.<br><br>
+			
+			
+			<h5>User response</h5>
+			
+			As an interactive web map designed to be approachable and informative to Lexington folks with a spectrum of knowledge on the Urban Service Area topic, this map requires user response to ascertain its success and value. Unfortunately, assessing user response on any significant scale was outside of my abilities for this particular project, but I did share drafts of the web map with some friends for feedback and response.<br><br>
+
+			One Lexington resident who had no prior knowledge of the Urban Service Area reported that examining the Urban Service Area-Rural Service Area borders helped him to visualize Lexington's development, but he was curious to learn more about the city's history prior to the urban growth boundary's establishment. This user found the areas closest to the Urban Service Area's boundaries most fascinating and asked about the perceptions of residents who live close to, and outside the boundary. I am interested in this as well, and hope to include this question in future research.<br><br>
+
+			Another user thought the map's pop-ups could include more information, but wasn't sure specifically what other facts about the Urban Service Area layer pop-ups would be helpful. I designed this map with brevity in mind, mostly thinking it would add appeal to users with limited interest in the Urban Service Area, but perhaps I underestimated what users want to see. This leaves room for future projects to better consider user interactive design and what people find interesting about this and similar maps.
 	
 	</body>
 		
