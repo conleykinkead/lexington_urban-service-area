@@ -156,14 +156,16 @@ tr:hover {background-color: #ebedc3;}
 
 			To create this map, I imported the Urban Service Area layers and Lexington/Fayette County polygon layer into QGIS and ordered them with most recent boundary iteration on top. Underneath these layers three Esri basemaps are included to provide place names and aerial imagery or a simple grey vector tile layer per user choice. Urban Service Area layers were stylized to be semi-opaque and mapped to <a href="https://www.fabiocrameri.ch/colourmaps/">Fabio Crameri's davos sequential color scheme</a>.<br><br>
 
-			The web map skeleton was built using qgis2web before I edited the HTML manually to bring uniformity to layer pop-ups. <br><br>
+			Urban Service Area layers were edited to include new fields $percent_of_lexington_area, $urban-service-area_acres, $year, and $name. The Lexington/Fayette County layer was edited to include new fields $area_acres, $percent_of_lexington_area, and $name. I input the corresponding values manually for each of these layers before giving the new fields aliases to improve their legibility in the map's informational pop-ups. I also added attributions with links to the layers downloaded from Lexington's Data Hub. <br><br>
+			 
+			Next, qgis2web built the web map's skeleton before I edited the HTML manually to bring uniformity to layer pop-ups and make some other small tweaks. <br><br>
 
 			
 			<h3>Findings</h3>
 			
 			<h5>Technical findings</h5>
 			
-			This project strengthened my web mapping skills in a variety of ways. First, this is my first successful use of the qgis2web plugin, which I have struggled with immensely (and consequentially) in the past. But, I was determined to use this plugin as it can build an interactive web map, crucial for this project. Until now, my elementary knowledge and experience with web mapping has only supported building zoomable XYZ tiles maps, which would be inappropriate for this project both visually and conceptually. Through much trial and error, I found that the qgis2web plugin works best with layers loaded into QGIS as .geojson files. When the same layers were downloaded from the source and imported as .geopackage files, the QGIS2web plugin did not write them, and I ended up with only my base maps rendered. <br><br>
+			This project strengthened my web mapping skills in a variety of ways. First, this is my first successful use of the qgis2web plugin, which I have struggled with immensely (and consequentially) in the past. But, I was determined to use this plugin as it can build an interactive web map, crucial for this project. Until now, my elementary knowledge and experience with web mapping has only supported building zoomable XYZ tiles maps, which would be inappropriate for this project both visually and conceptually. Through much trial and error, I found that the qgis2web plugin works best with layers loaded into QGIS as .geojson files. When the same layers were downloaded from the source and imported as .geopackage files, the qgis2web plugin did not write them, and I ended up with only my base maps rendered. <br><br>
 			
 			qgis2web offers three services for map creation: OpenLayers, Leaflet, and Mapbox GL JS. All seem to have their strengths and drawbacks. I selected the Leaflet service because of its ability to embed an informational abstract to the map.<br><br>
 			
